@@ -2,15 +2,7 @@ package com.salesianostriana.trianasat.controller;
 
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotNull;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -61,14 +53,14 @@ public class TrianaSatController {
 	}
 	
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
-	public Usuario logout(@RequestBody Usuario usuario){
+	public @ResponseBody Usuario logout(@RequestBody Usuario usuario){
 		//TODO Meter código de SpringSession/Security?...
 		return null;
 	}
 	
-	/*@RequestMapping(value="/proyecto", method=RequestMethod.GET)
-	public List<Proyecto> findByToken(@ModelAttribute("token")String token, Model model){
+	@RequestMapping(value="/proyecto", method=RequestMethod.GET)
+	public List<Proyecto> findByToken(@RequestParam(value = "token", required = true)String token){
 		//TODO Meter código de SpringSession/Security?...
 		return repoProy.findByToken(token);
-	}*/
+	}
 }

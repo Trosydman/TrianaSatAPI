@@ -27,6 +27,14 @@ public class Proyecto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	
+	@Column
+	@NotNull
+	private long fecha_creacion;
+	
+	@Column
+	@NotNull
+	private long fecha_lanzamiento;
 
 	// atributo tipo String, recoge el nombre del proyecto.
 	@Column
@@ -49,37 +57,32 @@ public class Proyecto {
 	@NotNull
 	private String token;
 	
-	/*public String getToken() {
-		
-		final int longitud = 32;
-		String material= "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-		
-		Long seed = new Date().getTime();
-		Random r = new Random(seed);
-		StringBuffer sb = new StringBuffer();
-		for(int i = 0; i < longitud; i++) {
-			sb.append(material.charAt(r.nextInt(material.length())));
-		}
-		this.token = sb.toString();
-		return sb.toString();
-		
-	}*/
+	@Column
+	private String api_key;
 	
+	@Column
+	private String api_secret;
+	
+	@Column
+	private String access_token;
+	
+	@Column
+	private String access_token_secret;
 
 	// atributo tipo List, recoge una lista de Gps con los valores de situacion
 	// geografica.
 	@OneToMany(mappedBy = "proyecto")
-	private List<Gps> listaGps;
+	private List<Gps> gps;//listaGps;
 
 	// atributo tipo List, recoge una lista de Timelapse con los valores
 	// recogidos del dispositivo movil.
 	@OneToMany(mappedBy = "proyecto")
-	private List<Timelapse> listaTimelapse;
+	private List<Timelapse> timelapse;//listaTimelapse;
 
 	// atributo tipo List, recoge una lista de DatosSensores con los valores
 	// recogidos de los sensores del tracker.
 	@OneToMany(mappedBy = "proyecto")
-	private List<DatosSensores> listaDatosSensores;
+	private List<DatosSensores> datos_sensores;//listaDatosSensores;
 
 	// atributo tipo Organizacion, recoge los datos sobre la organizacion a la
 	// que pertenece el proyecto

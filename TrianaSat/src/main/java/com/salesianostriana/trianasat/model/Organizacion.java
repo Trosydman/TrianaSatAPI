@@ -23,9 +23,12 @@ public class Organizacion {
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	private long id;
 	
-	@Column
+	@Column(unique=true)
 	@NotNull
     private String nombre;
+	
+	@Column
+	private String descripcion;
 	
 	@OneToMany(mappedBy = "organizacion")
     private List<Usuario>listaUsuarios;

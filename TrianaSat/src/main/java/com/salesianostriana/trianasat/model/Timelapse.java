@@ -31,7 +31,9 @@ public class Timelapse {
 	@NotNull
 	private long fecha;
 	
-	// private int foto;
+	@Column (name="foto")
+	@NotNull
+	private String foto;
 	
 	// atributo tipo double, recoge el valor numerico del estado de la bateria
 	// del movil
@@ -46,14 +48,13 @@ public class Timelapse {
 	private Proyecto proyecto;
 
 	public Timelapse() {
-		super();
 	}
 
-	public Timelapse(long id, long fecha, double estadoBateria, Proyecto proyecto) {
-		super();
+	public Timelapse(long id, long fecha, String foto, double estado_bateria, Proyecto proyecto) {
 		this.id = id;
 		this.fecha = fecha;
-		this.estado_bateria = estadoBateria;
+		this.foto = foto;
+		this.estado_bateria = estado_bateria;
 		this.proyecto = proyecto;
 	}
 
@@ -73,12 +74,20 @@ public class Timelapse {
 		this.fecha = fecha;
 	}
 
-	public double getEstadoBateria() {
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+	public double getEstado_bateria() {
 		return estado_bateria;
 	}
 
-	public void setEstadoBateria(double estadoBateria) {
-		this.estado_bateria = estadoBateria;
+	public void setEstado_bateria(double estado_bateria) {
+		this.estado_bateria = estado_bateria;
 	}
 
 	public Proyecto getProyecto() {
@@ -91,8 +100,10 @@ public class Timelapse {
 
 	@Override
 	public String toString() {
-		return "Timelapse [id=" + id + ", fecha=" + fecha + ", estadoBateria=" + estado_bateria + ", proyecto="
-				+ proyecto + "]";
+		return "Timelapse [id=" + id + ", fecha=" + fecha + ", foto=" + foto + ", estado_bateria=" + estado_bateria
+				+ ", proyecto=" + proyecto + "]";
 	}
+
+	
 
 }
