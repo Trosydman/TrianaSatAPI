@@ -42,7 +42,7 @@ public class Usuario {
 	private String password;
 	// atributo tipo Organizacion, recoge los datos de la organizacion a la que
 	// pertenece el usuario.
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="org_id")
 	@NotNull
 	private Organizacion organizacion;

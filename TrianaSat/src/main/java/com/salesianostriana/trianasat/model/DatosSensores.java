@@ -45,7 +45,7 @@ public class DatosSensores {
 	@Column
 	private double humedad;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "proyecto")
 	@NotNull
 	private Proyecto proyecto;

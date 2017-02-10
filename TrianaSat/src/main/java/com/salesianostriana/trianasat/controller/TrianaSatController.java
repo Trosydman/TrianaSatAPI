@@ -44,11 +44,17 @@ public class TrianaSatController {
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	//TODO Cambiar Usuario por parámetros necesarios (email, password) 
-	public @ResponseBody Organizacion login(@RequestParam String email, @RequestParam String password){
+	public /*@ResponseBody*/ Organizacion login(@RequestParam String email, @RequestParam String password){
 		//TODO Meter código de SpringSession/Security?...
 		List<Usuario> usuarios = repoUsuario.findByEmailAndPassword(email, password);
-		if(usuarios.size()==1){
-			return usuarios.get(0).getOrganizacion();
+		try {
+			if(usuarios.size()==1){
+				Organizacion org = usuarios.get(0).getOrganizacion(); 
+				return org;
+			}
+			return new Organizacion();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
 		return new Organizacion();
 	}

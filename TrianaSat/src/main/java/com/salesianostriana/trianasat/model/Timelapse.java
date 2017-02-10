@@ -42,7 +42,7 @@ public class Timelapse {
 	@NotNull
 	private double estado_bateria;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "proyecto")
 	@NotNull
 	private Proyecto proyecto;

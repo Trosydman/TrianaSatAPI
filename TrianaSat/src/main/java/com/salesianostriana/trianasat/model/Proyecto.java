@@ -86,7 +86,7 @@ public class Proyecto {
 
 	// atributo tipo Organizacion, recoge los datos sobre la organizacion a la
 	// que pertenece el proyecto
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "org_id")
 	@NotNull
 	private Organizacion organizacion;
