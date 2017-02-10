@@ -40,35 +40,71 @@ public class Organizacion {
     public Organizacion() {
     }
 
-    public Organizacion(long id, String nombre, List<Usuario> listaUsuarios) {
-    	this.id = id;
-        this.nombre = nombre;
-        this.listaUsuarios = listaUsuarios;
 
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public List<Usuario> getListaUsuarios() {
-        return listaUsuarios;
-    }
-
-    public void setListaUsuarios(List<Usuario> listaUsuarios) {
-        this.listaUsuarios = listaUsuarios;
-    }
+	public Organizacion(long id, String nombre, String descripcion, List<Usuario> listaUsuarios,
+			List<Proyecto> listaProyectos) {
+		this.id = id;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.listaUsuarios = listaUsuarios;
+		this.listaProyectos = listaProyectos;
+	}
 
 
-    @Override
-    public String toString() {
-        return "Organizacion{" +
-                "nombre='" + nombre + '\'' +
-                ", listaUsuarios=" + listaUsuarios +
-                '}';
-    }
+	public long getId() {
+		return id;
+	}
+
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+
+	public String getNombre() {
+		return nombre;
+	}
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+
+	public List<Usuario> getListaUsuarios() {
+		return listaUsuarios;
+	}
+
+
+	public void setListaUsuarios(List<Usuario> listaUsuarios) {
+		this.listaUsuarios = listaUsuarios;
+	}
+
+
+	public List<Proyecto> getListaProyectos() {
+		return listaProyectos;
+	}
+
+
+	public void setListaProyectos(List<Proyecto> listaProyectos) {
+		this.listaProyectos = listaProyectos;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Organizacion [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", listaUsuarios="
+				+ listaUsuarios + ", listaProyectos=" + listaProyectos + "]";
+	}
+    
 }
