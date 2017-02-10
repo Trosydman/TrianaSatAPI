@@ -90,76 +90,225 @@ public class Proyecto {
 	@JoinColumn(name = "org_id")
 	@NotNull
 	private Organizacion organizacion;
-	
-	
 
+	
 	public Proyecto() {
 		super();
 	}
 
-	public Proyecto(long id, String nombre, String descripcion, String localidad, /*String token,*/
+	public Proyecto(long id, long fecha_creacion, long fecha_lanzamiento, String nombre, String descripcion,
+			String localidad, String token, String api_key, String api_secret, String access_token,
+			String access_token_secret, List<Gps> gps, List<Timelapse> timelapse, List<DatosSensores> datos_sensores,
 			Organizacion organizacion) {
-		super();
 		this.id = id;
+		this.fecha_creacion = fecha_creacion;
+		this.fecha_lanzamiento = fecha_lanzamiento;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.localidad = localidad;
-		//this.token = token;
+		this.token = token;
+		this.api_key = api_key;
+		this.api_secret = api_secret;
+		this.access_token = access_token;
+		this.access_token_secret = access_token_secret;
+		this.gps = gps;
+		this.timelapse = timelapse;
+		this.datos_sensores = datos_sensores;
 		this.organizacion = organizacion;
 	}
+
+
 
 	public long getId() {
 		return id;
 	}
 
+
+
 	public void setId(long id) {
 		this.id = id;
 	}
+
+
+
+	public long getFecha_creacion() {
+		return fecha_creacion;
+	}
+
+
+
+	public void setFecha_creacion(long fecha_creacion) {
+		this.fecha_creacion = fecha_creacion;
+	}
+
+
+
+	public long getFecha_lanzamiento() {
+		return fecha_lanzamiento;
+	}
+
+
+
+	public void setFecha_lanzamiento(long fecha_lanzamiento) {
+		this.fecha_lanzamiento = fecha_lanzamiento;
+	}
+
+
 
 	public String getNombre() {
 		return nombre;
 	}
 
+
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
+
 
 	public String getDescripcion() {
 		return descripcion;
 	}
 
+
+
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+
+
 
 	public String getLocalidad() {
 		return localidad;
 	}
 
+
+
 	public void setLocalidad(String localidad) {
 		this.localidad = localidad;
 	}
+
+
 
 	public String getToken() {
 		return token;
 	}
 
+
+
 	public void setToken(String token) {
 		this.token = token;
 	}
+
+
+
+	public String getApi_key() {
+		return api_key;
+	}
+
+
+
+	public void setApi_key(String api_key) {
+		this.api_key = api_key;
+	}
+
+
+
+	public String getApi_secret() {
+		return api_secret;
+	}
+
+
+
+	public void setApi_secret(String api_secret) {
+		this.api_secret = api_secret;
+	}
+
+
+
+	public String getAccess_token() {
+		return access_token;
+	}
+
+
+
+	public void setAccess_token(String access_token) {
+		this.access_token = access_token;
+	}
+
+
+
+	public String getAccess_token_secret() {
+		return access_token_secret;
+	}
+
+
+
+	public void setAccess_token_secret(String access_token_secret) {
+		this.access_token_secret = access_token_secret;
+	}
+
+
+
+	public List<Gps> getGps() {
+		return gps;
+	}
+
+
+
+	public void setGps(List<Gps> gps) {
+		this.gps = gps;
+	}
+
+
+
+	public List<Timelapse> getTimelapse() {
+		return timelapse;
+	}
+
+
+
+	public void setTimelapse(List<Timelapse> timelapse) {
+		this.timelapse = timelapse;
+	}
+
+
+
+	public List<DatosSensores> getDatos_sensores() {
+		return datos_sensores;
+	}
+
+
+
+	public void setDatos_sensores(List<DatosSensores> datos_sensores) {
+		this.datos_sensores = datos_sensores;
+	}
+
+
 
 	public Organizacion getOrganizacion() {
 		return organizacion;
 	}
 
+
+
 	public void setOrganizacion(Organizacion organizacion) {
 		this.organizacion = organizacion;
 	}
 
+
+
 	@Override
 	public String toString() {
-		return "Proyecto [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", localidad=" + localidad
-				+ ", token=" + getToken() + ", organizacion=" + organizacion + "]";
+		return "Proyecto [id=" + id + ", fecha_creacion=" + fecha_creacion + ", fecha_lanzamiento=" + fecha_lanzamiento
+				+ ", nombre=" + nombre + ", descripcion=" + descripcion + ", localidad=" + localidad + ", token="
+				+ token + ", api_key=" + api_key + ", api_secret=" + api_secret + ", access_token=" + access_token
+				+ ", access_token_secret=" + access_token_secret + ", gps=" + gps + ", timelapse=" + timelapse
+				+ ", datos_sensores=" + datos_sensores + ", organizacion=" + organizacion + "]";
 	}
+
+	
+	
 
 }

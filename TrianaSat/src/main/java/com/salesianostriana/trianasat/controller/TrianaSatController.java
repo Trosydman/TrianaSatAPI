@@ -42,14 +42,15 @@ public class TrianaSatController {
 		return repoUsuario.save(usuario);
 	}
 	
-	@RequestMapping(value="/login", method=RequestMethod.GET)
+	@RequestMapping(value="/login", method=RequestMethod.POST)
 	//TODO Cambiar Usuario por parámetros necesarios (email, password) 
-	public @ResponseBody boolean login(@RequestBody Usuario usuario){
+	public @ResponseBody Organizacion login(@RequestParam String email, @RequestParam String password){
 		//TODO Meter código de SpringSession/Security?...
-		if(repoUsuario.findByEmailAndPassword(usuario.getEmail(), usuario.getPassword()).contains(usuario)){
-			return true;
+		List<Usuario> usuarios = repoUsuario.findByEmailAndPassword(email, password);
+		if(usuarios.size()==1){
+			return usuarios.get(0).getOrganizacion();
 		}
-		return false;
+		return new Organizacion();
 	}
 	
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
