@@ -40,7 +40,7 @@ public class Organizacion {
     public Organizacion() {
     }
 
-
+    
 	public Organizacion(long id, String nombre, String descripcion, List<Usuario> listaUsuarios,
 			List<Proyecto> listaProyectos) {
 		this.id = id;
