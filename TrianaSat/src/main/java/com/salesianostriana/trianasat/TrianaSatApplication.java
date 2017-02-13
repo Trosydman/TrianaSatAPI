@@ -21,7 +21,12 @@ public class TrianaSatApplication {
 
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/**").allowedOrigins("http://94.247.31.252", "http://www.salesianos-triana.com", "http://localhost");
+				registry.addMapping("/**").allowedOrigins(
+						"http://94.247.31.252",
+						"http://www.salesianos-triana.com",
+						"http://localhost",
+						"http://www.trianasat.com"
+						);
 			}
 			
 		};
