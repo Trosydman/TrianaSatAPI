@@ -1,14 +1,8 @@
 package com.salesianostriana.trianasat.controller;
 
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -48,17 +42,23 @@ public class TrianaSatController {
 		return repoUsuario.save(usuario);
 	}
 	
-	@RequestMapping(value="/login", method=RequestMethod.POST)
-	//TODO Cambiar Usuario por parámetros necesarios (email, password) 
-	public Organizacion login(@RequestParam String email, @RequestParam String password){
-		//TODO Meter código de SpringSession/Security?...
-		List<Usuario> usuarios = repoUsuario.findByEmailAndPassword(email, password);
-		if(usuarios.size()==1){
-			Organizacion org = usuarios.get(0).getOrganizacion();
-			return org;
-		}
-		return new Organizacion();
-	}
+//	@RequestMapping(value="/login"/*, method=RequestMethod.POST*/)
+//	//TODO Cambiar Usuario por parámetros necesarios (email, password) 
+//	public Organizacion login(@RequestParam String email, @RequestParam String password){
+//		//TODO Meter código de SpringSession/Security?...
+//		List<Usuario> usuarios = repoUsuario.findByEmailAndPassword(email, password);
+//		if(usuarios.size()==1){
+//			Organizacion org = usuarios.get(0).getOrganizacion();
+
+	//	public @ResponseBody Organizacion login(@RequestParam String email, @RequestParam String password){
+//		//TODO Meter código de SpringSession/Security?...
+//		List<Usuario> usuarios = repoUsuario.findByEmailAndPassword(email, password);
+//		if(usuarios.size()==1){
+//			Organizacion org = usuarios.get(0).getOrganizacion(); 
+//			return org;
+//		}
+//		return new Organizacion();
+//	}
 	
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
 	public @ResponseBody Usuario logout(@RequestBody Usuario usuario){
