@@ -50,15 +50,14 @@ public class TrianaSatController {
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	//TODO Cambiar Usuario por parámetros necesarios (email, password) 
-	public HttpEntity<Organizacion> login(@RequestParam String email, @RequestParam String password){
+	public Organizacion login(@RequestParam String email, @RequestParam String password){
 		//TODO Meter código de SpringSession/Security?...
 		List<Usuario> usuarios = repoUsuario.findByEmailAndPassword(email, password);
 		if(usuarios.size()==1){
 			Organizacion org = usuarios.get(0).getOrganizacion();
-			org.add(linkTo(methodOn(TrianaSatController.class).login(email, password)).withSelfRel());
-			return new ResponseEntity<Organizacion>(org, HttpStatus.OK);
+			return org;
 		}
-		return new ResponseEntity<Organizacion>(HttpStatus.NO_CONTENT);
+		return new Organizacion();
 	}
 	
 	@RequestMapping(value="/logout", method=RequestMethod.GET)

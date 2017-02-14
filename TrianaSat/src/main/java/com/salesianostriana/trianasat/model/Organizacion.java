@@ -55,9 +55,9 @@ public class Organizacion extends ResourceSupport {
 	}
 
     
-	@JsonCreator
-	public Organizacion(@JsonProperty("nombre") String nombre,@JsonProperty("descripcion") String descripcion,
-			@JsonProperty("listaUsuarios")List<Usuario> listaUsuarios, @JsonProperty("listaProyectos") List<Proyecto> listaProyectos) {
+	
+	public Organizacion(String nombre, String descripcion,
+			List<Usuario> listaUsuarios,  List<Proyecto> listaProyectos) {
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.listaUsuarios = listaUsuarios;
