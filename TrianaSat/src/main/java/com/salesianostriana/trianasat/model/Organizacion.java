@@ -21,7 +21,7 @@ import javax.validation.constraints.NotNull;
 public class Organizacion {
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
-	private long id;
+	private Long id;
 	
 	@Column(unique=true)
 	@NotNull

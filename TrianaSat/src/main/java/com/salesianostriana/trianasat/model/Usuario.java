@@ -22,7 +22,7 @@ public class Usuario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private Long id;
 
 	// atributo tipo String, recoge el nombre del usuario.
 	@Column

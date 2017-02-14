@@ -23,7 +23,7 @@ public class Timelapse {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private Long id;
 
 	// atributo tipo long, recoge la fecha y la hora tomada en cada instante del
 	// movil.
