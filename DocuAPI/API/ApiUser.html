@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<title>RESTful API @lsbozo</title>
+
+	<link rel="stylesheet" href="style.css">
+
+<script>var delay = null; currDisplay = null;function layerout(obj, bgid){var element= document.getElementById(bgid);if(element!=currDisplay){if (currDisplay) { currDisplay.style.cssText+=";display:none;"; }} clearTimeout(delay);var x,y;oRect=obj.getBoundingClientRect();x= oRect.left;y= oRect.bottom;h=obj.offsetHeight;sh = 0;sh=Math.max(document.documentElement.scrollTop, document.body.scrollTop);delay= window.setTimeout(function(){element.style.cssText+=";display:block;left:"+x+"px;top:"+(y+sh+5)+"px;";},800)}function layerin(obj,e,bgid) {clearTimeout(delay); var element = document.getElementById(bgid);currDisplay = element;if (e.currentTarget){if (e.relatedTarget != obj){if (obj != e.relatedTarget.parentNode){delay = window.setTimeout(function(){element.style.cssText+=";display:none;";}, 500);}}} else {if (e.toElement != obj){if (obj != e.toElement.parentNode) {delay = window.setTimeout(function(){element.style.cssText+=";display:none;";}, 500);}}}};function MyClose(divId){clearTimeout(delay);var element = document.getElementById(divId);element.style.cssText+=";display:none;"};</script></head>
+<body>
+
+<div id="container">
+	<h1>LOGO DE TRIANASAT BETA 1.0</h1>
+
+	<div id="body">
+		<p>
+			<!--<a href="http://rest.miguelcr.com/info/killduck"><img src="Plantilla%20API_files/killduck.png" width="100"></a>-->
+		</p>
+		<p>
+			 <h3>Usuarios</h3> 	</p>
+		<table>
+		<tbody><tr><th>Función</th>
+		<th>Petición HTTP</th>
+		<th>Parámetros</th>
+		<th>Resultado</th>
+				</tr><tr>
+			<td>
+				<span class="funcion">Usuarios</span><br>
+				<i class="uri">http://trianasat2-salesianostriana.rhcloud.com/usuarios<br></i>
+				Esta función devuelve una lista con todas los usuarios</td>
+			<td>GET</td>
+			<td>
+				<ul>
+<li>No requiere parametros</li>
+		<li> sort: Ordena los resultados alfabeticamente</li>
+				<li> size: Te devuele el número de resultados por páginas que tu le indiques</li>
+				<li> page: Devuelve la página que le indiques</li>
+			</ul></td>
+			<td><pre><code>
+{
+  "_embedded": {
+    "usuarios": 
+          {
+        "nombre": "Daniel",
+        "apellidos": "Blázquez Morlano",
+        "email": "dani@email.com",
+        "password": "parato2017",
+        "administrador": false,
+        "_links": {
+          "self": {
+            "href": "http://172.27.0.136:8080/usuarios/1"
+          },
+          "usuario": {
+            "href": "http://172.27.0.136:8080/usuarios/1"
+          },
+          "organizacion": {
+            "href": "http://172.27.0.136:8080/usuarios/1/organizacion"
+          }
+        }
+      }
+  },
+  "_links": {
+    "self": {
+      "href": "http://172.27.0.136:8080/usuarios"
+    },
+    "profile": {
+      "href": "http://172.27.0.136:8080/profile/usuarios"
+    },
+    "search": {
+      "href": "http://172.27.0.136:8080/usuarios/search"
+    }
+  },
+  "page": {
+    "size": 20,
+    "totalElements": 1,
+    "totalPages": 1,
+    "number": 0
+  }
+}
+
+
+
+</code></pre></td>
+		</tr>
+				<tr>
+			<td>
+				<span class="funcion">Buscar por Id</span><br>
+				<i class="uri">http://trianasat2-salesianostriana.rhcloud.com/usuarios/id<br></i>
+				Esta consulta permite encontrar un usuario por su id
+
+Si el id no existe devuelve código 404. Si existe ha ido bien devuelve el código 200.			</td>
+			<td>GET</td>
+			<td>
+				<ul>
+<li>id: es el id de la usuario en la base de datos.</li>
+</ul>
+
+			</td>
+			<td><pre><code> {
+  "nombre": "Daniel",
+  "apellidos": "Blázquez Morlano",
+  "email": "dani@email.com",
+  "password": "parato2017",
+  "administrador": false,
+  "_links": {
+    "self": {
+      "href": "http://172.27.0.136:8080/usuarios/1"
+    },
+    "usuario": {
+      "href": "http://172.27.0.136:8080/usuarios/1"
+    },
+    "organizacion": {
+      "href": "http://172.27.0.136:8080/usuarios/1/organizacion"
+    }
+  }
+}
+
+
+</code></pre></td>
+		</tr>
+				<tr>
+			<td>
+				<span class="funcion">Dar de alta Usuario</span><br>
+				<i class="uri">http://trianasat2-salesianostriana.rhcloud.com/usuarios<br></i>
+				Esta petción permite dar de alta un usuario
+
+Si ya existe devuelve código 409. Si todo ok devuelve un código 201.			</td>
+			<td>POST</td>
+			<td>
+				<ul>
+<li>nombre: es el nombre del usuario.</li>
+<li>apellidos: es el apellido del usuario. </li>
+<li>email: es el mail del usuario. </li>
+<li>password: es la contraseña del usuario. </li>
+<li>administrador: es un booleano que indica si es o no admin. </li>
+<li>organización: la url + id de la organización. </li>
+</ul>
+
+			</td>
+			<td><code>
+{
+  "nombre": "Loreto",
+  "apellidos": "Sabido Bozo",
+  "email": "lore@email.com",
+  "password": "parato2017",
+  "administrador": true,
+  "_links": {
+    "self": {
+      "href": "http://172.27.0.136:8080/usuarios/2"
+    },
+    "usuario": {
+      "href": "http://172.27.0.136:8080/usuarios/2"
+    },
+    "organizacion": {
+      "href": "http://172.27.0.136:8080/usuarios/2/organizacion"
+    }
+  }
+}
+
+
+
+</code></td>
+		</tr>
+				</tbody></table>
+	</div>
+
+	<p class="footer">Página renderizada en <strong>0.1849</strong> segundos. RESTful API para uso educativo, developed by <a href="http://www.twitter.com/miguelcampos">@lsbozo</a></p>
+</div>
+
+
+</body></html>

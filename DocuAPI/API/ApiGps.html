@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<title>API documentation TrianaSat</title>
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+<script>var delay = null; currDisplay = null;function layerout(obj, bgid){var element= document.getElementById(bgid);if(element!=currDisplay){if (currDisplay) { currDisplay.style.cssText+=";display:none;"; }} clearTimeout(delay);var x,y;oRect=obj.getBoundingClientRect();x= oRect.left;y= oRect.bottom;h=obj.offsetHeight;sh = 0;sh=Math.max(document.documentElement.scrollTop, document.body.scrollTop);delay= window.setTimeout(function(){element.style.cssText+=";display:block;left:"+x+"px;top:"+(y+sh+5)+"px;";},800)}function layerin(obj,e,bgid) {clearTimeout(delay); var element = document.getElementById(bgid);currDisplay = element;if (e.currentTarget){if (e.relatedTarget != obj){if (obj != e.relatedTarget.parentNode){delay = window.setTimeout(function(){element.style.cssText+=";display:none;";}, 500);}}} else {if (e.toElement != obj){if (obj != e.toElement.parentNode) {delay = window.setTimeout(function(){element.style.cssText+=";display:none;";}, 500);}}}};function MyClose(divId){clearTimeout(delay);var element = document.getElementById(divId);element.style.cssText+=";display:none;"};</script></head>
+<body>
+
+<div id="container">
+	<h1><a href="http://rest.miguelcr.com/"><img src="Plantilla%20API_files/logo-rest-api.png" width="200"></a></h1>
+
+	<div id="body">
+		<p>
+		GPS
+		</p>
+		<table>
+		<tbody><tr><th>Función</th>
+		<th>Petición HTTP</th>
+		<th>Parámetros</th>
+		<th>Resultado</th>
+				</tr>
+
+				<tr>
+			<td>
+				<span class="funcion">Gps</span><br>
+				<i class="uri">http://trianasat2-salesianostriana.rhcloud.com/proyectos/ " Id del proyecto "/gps<br></i>
+				Esta función devuelve un listado de objetos GPS con toda la información que queremos</td>
+			<td>GET</td>
+			<td>
+				<li> id del proyecto: Es un número entero.</li>
+				<li> sort: Ordena los resultados alfabeticamente</li>
+				<li> size: Te devuele el número de resultados por páginas que tu le indiques</li>
+				<li> page: Devuelve la página que le indiques</li>
+					</td>
+			<td><code>
+
+{
+  "_embedded": {<br>
+    "gps": [<br>
+      {<br>
+        "fecha": 1486715852145,<br>
+        "lat": 37.38035458,<br>
+        "lng": -6.00701116,<br>
+        "estado_bateria": 96,<br>
+        "_links": {<br>
+          "self": {<br>
+            "href": "http://172.27.0.136:8080/gps/1"<br>
+          },<br>
+          "gps": {<br>
+            "href": "http://172.27.0.136:8080/gps/1"<br>
+          },<br>
+          "proyecto": {<br>
+            "href": "http://172.27.0.136:8080/gps/1/proyecto"<br>
+          }<br>
+        }
+      }
+
+</code></td>
+		</tr>
+		<tr>
+			<td>
+				<span class="funcion">GPS</span><br>
+				<i class="uri">http://trianasat2-salesianostriana.rhcloud.com/gps<br></i>
+				Esta función sirve para introducir datos de gps en un <br>
+				proyecto, añade un objeto tipo gps a la lista del proyecto
+			</td>
+			<td>POST</td>
+			<td>
+				<ul>
+{<br>
+	"estado_bateria":60.0,<br>
+	"fecha":417258369,<br>
+	"lat":40.1258,<br>
+	"lng":-3.452,<br>
+	"proyecto":"http://trianasat2-salesianostriana.rhcloud.com/proyectos/4"<br>
+}<br>
+</ul>
+
+			</td>
+			<td><code>
+{<br>
+  "fecha": 417258369,<br>
+  "lat": 40.1258,<br>
+  "lng": -3.452,<br>
+  "estado_bateria": 60,<br>
+  "_links": {<br>
+    "self": {<br>
+      "href": "http://trianasat2-salesianostriana.rhcloud.com/gps/16"<br>
+    },<br>
+    "gps": {<br>
+      "href": "http://trianasat2-salesianostriana.rhcloud.com/gps/16"<br>
+    },<br>
+    "proyecto": {<br>
+      "href": "http://trianasat2-salesianostriana.rhcloud.com/gps/16/proyecto"<br>
+    }<br>
+  }
+}
+
+
+
+</code></td>
+
+				</tbody></table>
+	</div>
+
+	<p class="footer">Página renderizada en <strong>0.1849</strong> segundos. RESTful API para uso educativo, developed by <a href="http://www.twitter.com/miguelcampos">@miguelcampos</a></p>
+</div>
+
+
+</body></html>
