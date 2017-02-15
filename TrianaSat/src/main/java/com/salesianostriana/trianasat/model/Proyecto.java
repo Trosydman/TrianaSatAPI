@@ -14,6 +14,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.hateoas.ResourceSupport;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Created by aalvarez on 27/01/2017.
  */
@@ -22,7 +28,7 @@ import javax.validation.constraints.NotNull;
 // principal de las demas clases.
 @Entity
 @Table(name = "PROYECTO")
-public class Proyecto {
+public class Proyecto extends ResourceSupport{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -96,7 +102,7 @@ public class Proyecto {
 		super();
 	}
 
-	public Proyecto(long id, long fecha_creacion, long fecha_lanzamiento, String nombre, String descripcion,
+	public Proyecto(Long id, long fecha_creacion, long fecha_lanzamiento, String nombre, String descripcion,
 			String localidad, String token, String api_key, String api_secret, String access_token,
 			String access_token_secret, List<Gps> gps, List<Timelapse> timelapse, List<DatosSensores> datos_sensores,
 			Organizacion organizacion) {
@@ -117,20 +123,34 @@ public class Proyecto {
 		this.organizacion = organizacion;
 	}
 
+	@JsonCreator
+	public Proyecto(@JsonProperty("fecha_creacion")long fecha_creacion, @JsonProperty("fecha_lanzamiento")long fecha_lanzamiento, 
+			@JsonProperty("nombre")String nombre, @JsonProperty("descripcion")String descripcion, @JsonProperty("localidad")String localidad,
+			@JsonProperty("token")String token, @JsonProperty("api_key")String api_key, @JsonProperty("api_secret")String api_secret,
+			@JsonProperty("access_token")String access_token, @JsonProperty("access_token_secret")String access_token_secret, 
+			@JsonProperty("gps")List<Gps> gps, @JsonProperty("timelapse")List<Timelapse> timelapse, @JsonProperty("datos_sensores")List<DatosSensores> datos_sensores,
+			@JsonProperty("organizacion")Organizacion organizacion) {
+		this.fecha_creacion = fecha_creacion;
+		this.fecha_lanzamiento = fecha_lanzamiento;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.localidad = localidad;
+		this.token = token;
+		this.api_key = api_key;
+		this.api_secret = api_secret;
+		this.access_token = access_token;
+		this.access_token_secret = access_token_secret;
+		this.gps = gps;
+		this.timelapse = timelapse;
+		this.datos_sensores = datos_sensores;
+		this.organizacion = organizacion;
+	}
 
-
-	public Long getId() {
+	@JsonIgnore
+	public Long getIdLong(){
 		return id;
 	}
-
-
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-
-
+	
 	public long getFecha_creacion() {
 		return fecha_creacion;
 	}

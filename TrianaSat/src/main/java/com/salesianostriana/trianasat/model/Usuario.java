@@ -11,6 +11,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.hateoas.ResourceSupport;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Created by aalvarez on 27/01/2017.
  */
@@ -18,7 +23,7 @@ import javax.validation.constraints.NotNull;
 // clase con los datos de cada usuario.
 @Entity
 @Table(name="USUARIO")
-public class Usuario {
+public class Usuario extends ResourceSupport{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -55,8 +60,10 @@ public class Usuario {
 	
 	public Usuario() {
 	}
-	public Usuario(String nombre, String apellidos, String email, String password, Organizacion organizacion,
-			boolean administrador) {
+	
+	@JsonCreator
+	public Usuario(@JsonProperty("nombre")String nombre, @JsonProperty("apellidos")String apellidos, @JsonProperty("email")String email,
+			@JsonProperty("password")String password, @JsonProperty("organizacion")Organizacion organizacion, @JsonProperty("administrador")boolean administrador) {
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.email = email;
@@ -64,6 +71,7 @@ public class Usuario {
 		this.organizacion = organizacion;
 		this.administrador = administrador;
 	}
+	
 	public Usuario(long id, String nombre, String apellidos, String email, String password, Organizacion organizacion,
 			boolean administrador) {
 		this.id = id;
@@ -74,48 +82,55 @@ public class Usuario {
 		this.organizacion = organizacion;
 		this.administrador = administrador;
 	}
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
+	
 	public String getNombre() {
 		return nombre;
 	}
+	
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
 	public String getApellidos() {
 		return apellidos;
 	}
+	
 	public void setApellidos(String apellidos) {
 		this.apellidos = apellidos;
 	}
+	
 	public String getEmail() {
 		return email;
 	}
+	
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
 	public String getPassword() {
 		return password;
 	}
+	
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
 	public Organizacion getOrganizacion() {
 		return organizacion;
 	}
+	
 	public void setOrganizacion(Organizacion organizacion) {
 		this.organizacion = organizacion;
 	}
+	
 	public boolean isAdministrador() {
 		return administrador;
 	}
+	
 	public void setAdministrador(boolean administrador) {
 		this.administrador = administrador;
 	}
+	
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", email=" + email

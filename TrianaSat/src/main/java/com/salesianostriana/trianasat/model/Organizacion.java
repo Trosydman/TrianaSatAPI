@@ -14,6 +14,7 @@ import javax.validation.constraints.NotNull;
 import org.springframework.hateoas.ResourceSupport;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -45,7 +46,7 @@ public class Organizacion extends ResourceSupport{
     public Organizacion() {
     }
 
-	public Organizacion(long id, String nombre, String descripcion, List<Usuario> listaUsuarios,
+	public Organizacion(Long id, String nombre, String descripcion, List<Usuario> listaUsuarios,
 			List<Proyecto> listaProyectos) {
 		this.id = id;
 		this.nombre = nombre;
@@ -63,9 +64,9 @@ public class Organizacion extends ResourceSupport{
 		this.listaProyectos = listaProyectos;
 	}
 
-
-	public void setId(Long id) {
-		this.id = id;
+	@JsonIgnore
+	public Long getIdLong(){
+		return id;
 	}
 
 
