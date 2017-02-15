@@ -11,6 +11,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.hateoas.ResourceSupport;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Created by aalvarez on 27/01/2017.
  */
@@ -18,7 +23,7 @@ import javax.validation.constraints.NotNull;
 //La organización está formada por muchos usuarios y por un solo usuario que es administrador
 @Entity
 @Table(name="ORGANIZACION")
-public class Organizacion {
+public class Organizacion extends ResourceSupport{
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	private Long id;
@@ -40,7 +45,6 @@ public class Organizacion {
     public Organizacion() {
     }
 
-    
 	public Organizacion(long id, String nombre, String descripcion, List<Usuario> listaUsuarios,
 			List<Proyecto> listaProyectos) {
 		this.id = id;
@@ -49,19 +53,14 @@ public class Organizacion {
 		this.listaUsuarios = listaUsuarios;
 		this.listaProyectos = listaProyectos;
 	}
-
     
-	
-	public Organizacion(String nombre, String descripcion,
-			List<Usuario> listaUsuarios,  List<Proyecto> listaProyectos) {
+	@JsonCreator
+	public Organizacion(@JsonProperty("nombre")String nombre, @JsonProperty("descripcion")String descripcion,
+			@JsonProperty("listaUsuarios")List<Usuario> listaUsuarios,  @JsonProperty("listaProyecto")List<Proyecto> listaProyectos) {
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.listaUsuarios = listaUsuarios;
 		this.listaProyectos = listaProyectos;
-	}
-
-	public Long getId() {
-		return id;
 	}
 
 
