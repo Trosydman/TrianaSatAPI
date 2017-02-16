@@ -59,7 +59,7 @@ public class TrianaSatController {
 		return null;
 	}*/
 	
-	@RequestMapping(value="/proyecto", method=RequestMethod.POST)
+	@RequestMapping(value="/proyectos", method=RequestMethod.POST)
 	public HttpEntity<Proyecto> findByToken(@RequestParam(value = "token", required = true)String token, HttpServletRequest request){
 		//TODO Meter código de SpringSession/Security?...
 		List<Proyecto> proy = repoProy.findByToken(token);
@@ -92,13 +92,13 @@ public class TrianaSatController {
 	private List<Link> getProyLinks(Proyecto proy, HttpServletRequest request){
 		List<Link> proyLinks = new ArrayList<Link>();
 		//TODO intentar obtener el Link mediante org.getId() -> Por qué es null?
-		String urlSelf = request.getRequestURL().toString().replace("login", "proyectos")+"/"+proy.getIdLong();
+		String urlSelf = request.getRequestURL().toString()+"/"+proy.getIdLong();
 		
 		proyLinks.add(new Link(urlSelf).withSelfRel());
-		proyLinks.add(new Link(urlSelf,"proyectos"));
+		proyLinks.add(new Link(urlSelf,"proyecto"));
+		proyLinks.add(new Link(urlSelf+"/organizacion","organizacion"));
 		proyLinks.add(new Link(urlSelf+"/timelapse","timelapse"));
 		proyLinks.add(new Link(urlSelf+"/gps","gps"));
-		proyLinks.add(new Link(urlSelf+"/organizacion","organizacion"));
 		proyLinks.add(new Link(urlSelf+"/datos_sensores","datos_sensores"));
 		
 		return proyLinks;
