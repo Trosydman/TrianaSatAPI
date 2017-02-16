@@ -1,42 +1,107 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	<meta charset="utf-8">
-	<title>RESTful API @lsbozo</title>
+<html lang="en">
 
-	<link rel="stylesheet" href="style.css">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>RESTful API @lsbozo</title>
 
-<script>var delay = null; currDisplay = null;function layerout(obj, bgid){var element= document.getElementById(bgid);if(element!=currDisplay){if (currDisplay) { currDisplay.style.cssText+=";display:none;"; }} clearTimeout(delay);var x,y;oRect=obj.getBoundingClientRect();x= oRect.left;y= oRect.bottom;h=obj.offsetHeight;sh = 0;sh=Math.max(document.documentElement.scrollTop, document.body.scrollTop);delay= window.setTimeout(function(){element.style.cssText+=";display:block;left:"+x+"px;top:"+(y+sh+5)+"px;";},800)}function layerin(obj,e,bgid) {clearTimeout(delay); var element = document.getElementById(bgid);currDisplay = element;if (e.currentTarget){if (e.relatedTarget != obj){if (obj != e.relatedTarget.parentNode){delay = window.setTimeout(function(){element.style.cssText+=";display:none;";}, 500);}}} else {if (e.toElement != obj){if (obj != e.toElement.parentNode) {delay = window.setTimeout(function(){element.style.cssText+=";display:none;";}, 500);}}}};function MyClose(divId){clearTimeout(delay);var element = document.getElementById(divId);element.style.cssText+=";display:none;"};</script></head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        var delay = null;
+        currDisplay = null;
+
+        function layerout(obj, bgid) {
+            var element = document.getElementById(bgid);
+            if (element != currDisplay) {
+                if (currDisplay) {
+                    currDisplay.style.cssText += ";display:none;";
+                }
+            }
+            clearTimeout(delay);
+            var x, y;
+            oRect = obj.getBoundingClientRect();
+            x = oRect.left;
+            y = oRect.bottom;
+            h = obj.offsetHeight;
+            sh = 0;
+            sh = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
+            delay = window.setTimeout(function() {
+                element.style.cssText += ";display:block;left:" + x + "px;top:" + (y + sh + 5) + "px;";
+            }, 800)
+        }
+
+        function layerin(obj, e, bgid) {
+            clearTimeout(delay);
+            var element = document.getElementById(bgid);
+            currDisplay = element;
+            if (e.currentTarget) {
+                if (e.relatedTarget != obj) {
+                    if (obj != e.relatedTarget.parentNode) {
+                        delay = window.setTimeout(function() {
+                            element.style.cssText += ";display:none;";
+                        }, 500);
+                    }
+                }
+            } else {
+                if (e.toElement != obj) {
+                    if (obj != e.toElement.parentNode) {
+                        delay = window.setTimeout(function() {
+                            element.style.cssText += ";display:none;";
+                        }, 500);
+                    }
+                }
+            }
+        };
+
+        function MyClose(divId) {
+            clearTimeout(delay);
+            var element = document.getElementById(divId);
+            element.style.cssText += ";display:none;"
+        };
+    </script>
+</head>
+
 <body>
 
-<div id="container">
-	<h1>LOGO DE TRIANASAT BETA 1.0</h1>
+    <div id="container">
+        <h1>LOGO DE TRIANASAT BETA 1.0</h1>
 
-	<div id="body">
-		<p>
-			<!--<a href="http://rest.miguelcr.com/info/killduck"><img src="Plantilla%20API_files/killduck.png" width="100"></a>-->
-		</p>
-		<p>
-			 <h3>Organizaciones</h3></p>
-		<table>
-		<tbody><tr><th>Función</th>
-		<th>Petición HTTP</th>
-		<th>Parámetros</th>
-		<th>Resultado</th>
-				</tr><tr>
-			<td>
-				<span class="funcion">organizaciones</span><br>
-				<i class="uri">http://trianasat2-salesianostriana.rhcloud.com/organizaciones<br></i>
-				Esta función devuelve una lista con todas las organizaciones</td>
-			<td>GET</td>
-			<td>
-				<ul>
-<li>No requiere parametros</li>
-		<li> sort: Ordena los resultados alfabeticamente</li>
-				<li> size: Te devuele el número de resultados por páginas que tu le indiques</li>
-				<li> page: Devuelve la página que le indiques</li>
-			</ul></td>
-			<td><code>
+        <div id="body">
+            <p>
+                <!--<a href="http://rest.miguelcr.com/info/killduck"><img src="Plantilla%20API_files/killduck.png" width="100"></a>-->
+            </p>
+            <p>
+                <h3>Organizaciones</h3></p>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Función</th>
+                        <th>Petición HTTP</th>
+                        <th>Parámetros</th>
+                        <th>Resultado</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="funcion">organizaciones</span><br>
+                            <i class="uri">http://trianasat2-salesianostriana.rhcloud.com/organizaciones<br></i> Esta función devuelve una lista con todas las organizaciones</td>
+                        <td>GET</td>
+                        <td>
+                            <ul>
+                                <li>No requiere parametros</li>
+                                <li> sort: Ordena los resultados alfabeticamente</li>
+                                <li> size: Te devuele el número de resultados por páginas que tu le indiques</li>
+                                <li> page: Devuelve la página que le indiques</li>
+                            </ul>
+                        </td>
+                        <td><pre><code>
 [{
   "_embedded": {
     "organizaciones": [
@@ -77,23 +142,21 @@
 
 
 
-</code></td>
-		</tr>
-				<tr>
-			<td>
-				<span class="funcion">Buscar por Id</span><br>
-				<i class="uri">http://trianasat2-salesianostriana.rhcloud.com/organizaciones/id<br></i>
-				Esta consulta permite encontrar una organización por su id
+</code></pre></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="funcion">Buscar por Id</span><br>
+                            <i class="uri">http://trianasat2-salesianostriana.rhcloud.com/organizaciones/id<br></i> Esta consulta permite encontrar una organización por su id Si el id no existe devuelve código 404. Si existe ha ido bien devuelve el código
+                            200. </td>
+                        <td>GET</td>
+                        <td>
+                            <ul>
+                                <li>id: es el id de la organización en la base de datos.</li>
+                            </ul>
 
-Si el id no existe devuelve código 404. Si existe ha ido bien devuelve el código 200.			</td>
-			<td>GET</td>
-			<td>
-				<ul>
-<li>id: es el id de la organización en la base de datos.</li>
-</ul>
-
-			</td>
-			<td><code>[
+                        </td>
+                        <td><code>[
  {
   "nombre": "Salesianos Triana",
   "_links": {
@@ -114,23 +177,20 @@ Si el id no existe devuelve código 404. Si existe ha ido bien devuelve el códi
 ]
 
 </code></td>
-		</tr>
-				<tr>
-			<td>
-				<span class="funcion">Dar de alta Organización</span><br>
-				<i class="uri">http://trianasat2-salesianostriana.rhcloud.com/organizaciones<br></i>
-				Esta petción permite dar de alta una organización
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="funcion">Dar de alta Organización</span><br>
+                            <i class="uri">http://trianasat2-salesianostriana.rhcloud.com/organizaciones<br></i> Esta petción permite dar de alta una organización Si ya existe devuelve código 409. Si todo ok devuelve un código 201. </td>
+                        <td>POST</td>
+                        <td>
+                            <ul>
+                                <li>nombre: es el nombre de la organización.</li>
+                                <li>descripción: el la descripción de la organización. </li>
+                            </ul>
 
-Si ya existe devuelve código 409. Si todo ok devuelve un código 201.			</td>
-			<td>POST</td>
-			<td>
-				<ul>
-<li>nombre: es el nombre de la organización.</li>
-<li>descripción: el la descripción de la organización. </li>
-</ul>
-
-			</td>
-			<td><code>
+                        </td>
+                        <td><code>
 {
   "nombre": "Organización de prueba",
   "_links": {
@@ -152,12 +212,17 @@ Si ya existe devuelve código 409. Si todo ok devuelve un código 201.			</td>
 
 
 </code></td>
-		</tr>
-				</tbody></table>
-	</div>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-	<p class="footer">Página renderizada en <strong>0.1849</strong> segundos. RESTful API para uso educativo, developed by <a href="http://www.twitter.com/miguelcampos">@lsbozo</a></p>
-</div>
+        <p class="footer">Página renderizada en <strong>0.1849</strong> segundos. RESTful API para uso educativo, developed by <a href="http://www.twitter.com/miguelcampos">@lsbozo</a></p>
+    </div>
 
+    <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-</body></html>
+</body>
+
+</html>
