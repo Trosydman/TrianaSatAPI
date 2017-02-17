@@ -32,14 +32,14 @@
 			<td>
 				<ul>
 <li>No requiere parametros</li>
-		<li> sort: Ordena los resultados alfabeticamente</li>
-				<li> size: Te devuele el número de resultados por páginas que tu le indiques</li>
-				<li> page: Devuelve la página que le indiques</li>
+		<li> <b>sort:</b> Ordena los resultados alfabeticamente</li>
+				<li> <b>size:</b> Te devuele el número de resultados por páginas que tu le indiques</li>
+				<li> <b>page:</b> Devuelve la página que le indiques</li>
 			</ul></td>
 			<td><pre><code>
 {
   "_embedded": {
-    "usuarios": 
+    "usuarios":
           {
         "nombre": "Daniel",
         "apellidos": "Blázquez Morlano",
@@ -92,7 +92,7 @@ Si el id no existe devuelve código 404. Si existe ha ido bien devuelve el códi
 			<td>GET</td>
 			<td>
 				<ul>
-<li>id: es el id de la usuario en la base de datos.</li>
+<li><b>id:</b> es el id de la usuario en la base de datos.</li>
 </ul>
 
 			</td>
@@ -128,16 +128,16 @@ Si ya existe devuelve código 409. Si todo ok devuelve un código 201.			</td>
 			<td>POST</td>
 			<td>
 				<ul>
-<li>nombre: es el nombre del usuario.</li>
-<li>apellidos: es el apellido del usuario. </li>
-<li>email: es el mail del usuario. </li>
-<li>password: es la contraseña del usuario. </li>
-<li>administrador: es un booleano que indica si es o no admin. </li>
-<li>organización: la url + id de la organización. </li>
+<li><b>nombre:</b> es el nombre del usuario.</li>
+<li><b>apellidos:</b> es el apellido del usuario. </li>
+<li><b>email:</b> es el mail del usuario. </li>
+<li><b>password:</b> es la contraseña del usuario. </li>
+<li><b>administrador:</b> es un booleano que indica si es o no admin. </li>
+<li><b>organización:</b> la url + id de la organización. </li>
 </ul>
 
 			</td>
-			<td><code>
+			<td><pre><code>
 {
   "nombre": "Loreto",
   "apellidos": "Sabido Bozo",
@@ -157,9 +157,7 @@ Si ya existe devuelve código 409. Si todo ok devuelve un código 201.			</td>
   }
 }
 
-
-
-</code></td>
+</code></pre></td>
 		</tr>
 				</tbody></table>
 	</div>

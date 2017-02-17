@@ -12,7 +12,7 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="style.css">
+    	<link rel="stylesheet" href="style.css">
 
     <script>
         var delay = null;
@@ -83,7 +83,7 @@
             <table>
                 <tbody>
                     <tr>
-                        <th>Función</th>
+                        <th style="width:28%;">Función</th>
                         <th>Petición HTTP</th>
                         <th>Parámetros</th>
                         <th>Resultado</th>
@@ -96,9 +96,9 @@
                         <td>
                             <ul>
                                 <li>No requiere parametros</li>
-                                <li> sort: Ordena los resultados alfabeticamente</li>
-                                <li> size: Te devuele el número de resultados por páginas que tu le indiques</li>
-                                <li> page: Devuelve la página que le indiques</li>
+                                <li> <b>sort:</b> Ordena los resultados alfabeticamente</li>
+                                <li> <b>size:</b> Te devuele el número de resultados por páginas que tu le indiques</li>
+                                <li> <b>page:</b> Devuelve la página que le indiques</li>
                             </ul>
                         </td>
                         <td><pre><code>
@@ -140,8 +140,6 @@
   }
 }]
 
-
-
 </code></pre></td>
                     </tr>
                     <tr>
@@ -152,11 +150,11 @@
                         <td>GET</td>
                         <td>
                             <ul>
-                                <li>id: es el id de la organización en la base de datos.</li>
+                                <li><b>id:</b> es el id de la organización en la base de datos.</li>
                             </ul>
 
                         </td>
-                        <td><code>[
+                        <td><pre><code>[
  {
   "nombre": "Salesianos Triana",
   "_links": {
@@ -176,7 +174,7 @@
 }
 ]
 
-</code></td>
+</code></pre></td>
                     </tr>
                     <tr>
                         <td>
@@ -185,12 +183,12 @@
                         <td>POST</td>
                         <td>
                             <ul>
-                                <li>nombre: es el nombre de la organización.</li>
-                                <li>descripción: el la descripción de la organización. </li>
+                                <li><b>nombre:</b> es el nombre de la organización.</li>
+                                <li><b>descripción:</b> el la descripción de la organización. </li>
                             </ul>
 
                         </td>
-                        <td><code>
+                        <td><pre><code>
 {
   "nombre": "Organización de prueba",
   "_links": {
@@ -209,9 +207,7 @@
   }
 }
 
-
-
-</code></td>
+</code></pre></td>
                     </tr>
                 </tbody>
             </table>

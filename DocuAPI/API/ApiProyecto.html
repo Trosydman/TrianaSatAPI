@@ -4,7 +4,6 @@
 	<meta charset="utf-8">
 	<title>API documentation TrianaSat</title>
 
-
 	<link rel="stylesheet" href="style.css">
   <style type="text/css">
     code{
@@ -27,7 +26,8 @@
 		<p>
 			 	</p>
 		<table>
-		<tbody><tr><th>Función</th>
+		<tbody><tr>
+			<th style="width:28%;">Función</th>
 		<th>Petición HTTP</th>
 		<th>Parámetros</th>
 		<th>Resultado</th>
@@ -42,13 +42,13 @@
 			<td>
 				<ul>
 <li>No hay que pasarle ningun parámetro	</li>
-    <li> sort: Ordena los resultados alfabeticamente</li>
-        <li> size: Te devuele el número de resultados por páginas que tu le indiques</li>
-        <li> page: Devuelve la página que le indiques</li>
+    <li> <b>sort:</b> Ordena los resultados alfabeticamente</li>
+        <li> <b>size:</b> Te devuele el número de resultados por páginas que tu le indiques</li>
+        <li> <b>page:</b> Devuelve la página que le indiques</li>
 </ul>
 
 			</td>
-			<td><code>[
+			<td><pre><code>[
   {
   "_embedded": {
     "proyectos": [
@@ -80,8 +80,7 @@
       }
   }
 
-
-</code></td>
+</code></pre></td>
 		</tr><tr>
 			<td>
 				<span class="funcion">proyecto</span>
@@ -90,9 +89,9 @@
 			<td>GET</td>
 			<td>
 				<ul>
-<li>id del proyecto: Es un número entero .</li>
+<li><b>id del proyecto:</b><b> Es u</b>n número entero .</li>
 			</ul></td>
-			<td><code>
+			<td><pre><code>
 {<br>
   "nombre": "TrianaSat",<br>
   "descripcion": "Proyecto de sonda meteorológica para la Feria FP.",
@@ -120,9 +119,7 @@
   }
 }
 
-
-
-</code></td>
+</code></pre></td>
 		</tr>
 		</tr>
 
@@ -151,7 +148,7 @@
 </ul>
 
 			</td>
-			<td><code>
+			<td><pre><code>
 {
   "nombre": "Prueba",
   "descripcion": "",
@@ -179,9 +176,7 @@
   }
 }
 
-
-
-</code></td>
+</code></pre></td>
 		</tr>
 
 

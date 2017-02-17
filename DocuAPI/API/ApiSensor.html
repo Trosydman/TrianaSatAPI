@@ -32,11 +32,11 @@
 			<td>
 				<ul>
 <li>No requiere parametros</li>
-		<li> sort: Ordena los resultados alfabeticamente</li>
-				<li> size: Te devuele el número de resultados por páginas que tu le indiques</li>
-				<li> page: Devuelve la página que le indiques</li>
+		<li> <b>sort:</b> Ordena los resultados alfabeticamente</li>
+				<li> <b>size:</b> Te devuele el número de resultados por páginas que tu le indiques</li>
+				<li> <b>page:</b> Devuelve la página que le indiques</li>
 			</ul></td>
-			<td><code>
+			<td><pre><code>
 [{
   "_embedded": {
     "datossensores": [
@@ -79,7 +79,7 @@
 
 
 
-</code></td>
+</code></pre></td>
 		</tr>
 				<tr>
 			<td>
@@ -95,7 +95,7 @@ Si el id no existe devuelve código 404. Si existe ha ido bien devuelve el códi
 </ul>
 
 			</td>
-			<td><code>[
+			<td><pre><code>[
  {
   {
   "fecha": 3463457246,
@@ -118,7 +118,7 @@ Si el id no existe devuelve código 404. Si existe ha ido bien devuelve el códi
 }
 ]
 
-</code></td>
+</code></pre></td>
 		</tr>
 				<tr>
 			<td>
@@ -130,16 +130,16 @@ Si ya existe devuelve código 409. Si todo ok devuelve un código 201.			</td>
 			<td>POST</td>
 			<td>
 				<ul>
-<li>fecha: es la fecha de recogida del dato.</li>
-<li>altirud: es el altitud del dato. </li>
-<li>temperatura: es la temperatura. </li>
-<li>presión: es la presión. </li>
-<li>calidad_aire: es la calidad del aire </li>
-<li>humedad: es la humedad </li>
+<li><b>fecha:</b><b> es la fecha de recogida del dato.</li>
+<li><b>altirud:</b><b> es el altitud del dato. </li>
+<li><b>temperatura:</b><b> es la temperatura. </li>
+<li><b>presión:</b><b> es la presión. </li>
+<li><b>calidad_aire:</b><b> es la calidad del aire </li>
+<li><b>humedad:</b><b> es la humedad </li>
 </ul>
 
 			</td>
-			<td><code>
+			<td><pre><code>
 {
   "fecha": 3463457246,
   "altitud": 23.4,
@@ -160,9 +160,7 @@ Si ya existe devuelve código 409. Si todo ok devuelve un código 201.			</td>
   }
 }
 
-
-
-</code></td>
+</code></pre></td>
 		</tr>
 				</tbody></table>
 	</div>

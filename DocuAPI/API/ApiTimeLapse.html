@@ -33,11 +33,11 @@
 			<td>
 				<ul>
 <li>No requiere parametros</li>
-		<li> sort: Ordena los resultados alfabeticamente</li>
-				<li> size: Te devuele el número de resultados por páginas que tu le indiques</li>
-				<li> page: Devuelve la página que le indiques</li>
+		<li> <b>sort:</b> Ordena los resultados alfabeticamente</li>
+				<li> <b>size:</b> Te devuele el número de resultados por páginas que tu le indiques</li>
+				<li> <b>page:</b> Devuelve la página que le indiques</li>
 			</ul></td>
-			<td><code>
+			<td><pre><code>
 [{
   "_embedded": {
     "timelapse": [
@@ -93,9 +93,7 @@
   }
 }]
 
-
-
-</code></td>
+</code></pre></td>
 		</tr>
 				<tr>
 			<td>
@@ -107,11 +105,11 @@ Si el id no existe devuelve código 404. Si existe ha ido bien devuelve el códi
 			<td>GET</td>
 			<td>
 				<ul>
-<li>id: es el id de la Timelapse en la base de datos.</li>
+<li><b>id:</b><b> es e</b>l id de la Timelapse en la base de datos.</li>
 </ul>
 
 			</td>
-			<td><code>[
+			<td><pre><code>[
  {{
   "fecha_captura": 145196987,
         "fecha_subida": "08-02-17_19:32:48",
@@ -131,7 +129,7 @@ Si el id no existe devuelve código 404. Si existe ha ido bien devuelve el códi
 }
 ]
 
-</code></td>
+</code></pre></td>
 		</tr>
 				<tr>
 			<td>
@@ -143,14 +141,14 @@ Si ya existe devuelve código 409. Si todo ok devuelve un código 201.			</td>
 			<td>POST</td>
 			<td>
 				<ul>
-<li>fecha_captura: es la fecha en la que se tomó la foto.</li>
-<li>fecha_subida: es la fecha en la que se sube la foto.</li>
-<li>foto: la url de la foto. </li>
-<li>estado_bateria: es el estado de la bateria. </li>
+<li><b>fecha_captura:</b> es la fecha en la que se tomó la foto.</li>
+<li><b>fecha_subida:</b> es la fecha en la que se sube la foto.</li>
+<li><b>foto:</b> la url de la foto. </li>
+<li><b>estado_bateria:</b> es el estado de la bateria. </li>
 </ul>
 
 			</td>
-			<td><code>
+			<td><pre><code>
 {
   "fecha_captura": 145196987,
         "fecha_subida": "08-02-17_19:32:48",
@@ -169,9 +167,7 @@ Si ya existe devuelve código 409. Si todo ok devuelve un código 201.			</td>
   }
 }
 
-
-
-</code></td>
+</code></pre></td>
 		</tr>
 				</tbody></table>
 	</div>
