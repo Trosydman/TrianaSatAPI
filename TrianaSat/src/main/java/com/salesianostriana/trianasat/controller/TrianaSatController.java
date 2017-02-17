@@ -1,16 +1,19 @@
 package com.salesianostriana.trianasat.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Link;
 import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,18 +43,35 @@ public class TrianaSatController {
 		return repoUsuario.save(user);
 	}*/
 	
-	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public HttpEntity<Organizacion> login(@RequestParam(value = "email", required = true) String email,
-			@RequestParam(value = "password", required = true) String password, HttpServletRequest request){
-		//TODO Meter código de SpringSession/Security?...
-		List<Usuario> usuarios = repoUsuario.findByEmailAndPassword(email, password);
-		if(usuarios.size()==1){
-			Organizacion org = usuarios.get(0).getOrganizacion();
-			org.add(getOrgLinks(org, request));
-			return new ResponseEntity<Organizacion>(org,HttpStatus.OK);
-		}
-		return new ResponseEntity<Organizacion>(HttpStatus.NOT_FOUND);
-	}
+//	@RequestMapping(value="/login", method=RequestMethod.POST)
+//	public HttpEntity<Organizacion> login(@RequestParam(value = "email", required = true) String email,
+//			@RequestParam(value = "password", required = true) String password, HttpServletRequest request){
+//		//TODO Meter código de SpringSession/Security?...
+//		List<Usuario> usuarios = repoUsuario.findByEmailAndPassword(email, password);
+//		if(usuarios.size()==1){
+//			Organizacion org = usuarios.get(0).getOrganizacion();
+//			org.add(getOrgLinks(org, request));
+//			return new ResponseEntity<Organizacion>(org,HttpStatus.OK);
+//		}
+//		return new ResponseEntity<Organizacion>(HttpStatus.NOT_FOUND);
+//	}
+//	
+	
+//	@RequestMapping(value="/login", method=RequestMethod.POST)
+//	public ResponseEntity<?> login(@RequestParam(value = "email", required = true) String email,
+//			@RequestParam(value = "password", required = true) String password, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+//		//TODO Meter código de SpringSession/Security?...
+//		List<Usuario> usuarios = repoUsuario.findByEmailAndPassword(email, password);
+//		if(usuarios.size()==1){
+//			Organizacion org = usuarios.get(0).getOrganizacion();
+//			//org.add(getOrgLinks(org, request));
+//			return new ResponseEntity<Organizacion>(org,HttpStatus.OK);
+//			
+//		} else
+//			return new ResponseEntity<Organizacion>(HttpStatus.NOT_FOUND);
+//	}
+
+	
 	
 	/*@RequestMapping(value="/logout", method=RequestMethod.GET)
 	public @ResponseBody Usuario logout(@RequestBody Usuario usuario){
