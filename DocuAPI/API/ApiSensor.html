@@ -85,13 +85,11 @@
 			<td>
 				<span class="funcion">Buscar por Id</span><br>
 				<i class="uri">http://trianasat2-salesianostriana.rhcloud.com/datossensores/id<br></i>
-				Esta consulta permite encontrar un usuario por su id
-
-Si el id no existe devuelve código 404. Si existe ha ido bien devuelve el código 200.			</td>
+				Esta consulta permite encontrar un usuario por su id. Si el id no existe devuelve código 404. Si existe ha ido bien devuelve el código 200.			</td>
 			<td>GET</td>
 			<td>
 				<ul>
-<li>id: es el id de la usuario en la base de datos.</li>
+<li><b>id:</b> es el id de la usuario en la base de datos.</li>
 </ul>
 
 			</td>
@@ -122,20 +120,21 @@ Si el id no existe devuelve código 404. Si existe ha ido bien devuelve el códi
 		</tr>
 				<tr>
 			<td>
-				<span class="funcion">Dar de alta Usuario</span><br>
+				<span class="funcion">Dar de alta un sensor</span><br>
 				<i class="uri">http://trianasat2-salesianostriana.rhcloud.com/datossensores<br></i>
 				Esta petción permite dar de alta un usuario
 
-Si ya existe devuelve código 409. Si todo ok devuelve un código 201.			</td>
+Si ya existe devuelve código 409. Si todo está correcto devuelve un código 201.			</td>
 			<td>POST</td>
 			<td>
 				<ul>
-<li><b>fecha:</b><b> es la fecha de recogida del dato.</li>
-<li><b>altirud:</b><b> es el altitud del dato. </li>
-<li><b>temperatura:</b><b> es la temperatura. </li>
-<li><b>presión:</b><b> es la presión. </li>
-<li><b>calidad_aire:</b><b> es la calidad del aire </li>
-<li><b>humedad:</b><b> es la humedad </li>
+<li><b>fecha:</b> es la fecha de recogida del dato.</li>
+<li><b>altirud:</b> es el altitud del dato. </li>
+<li><b>temperatura:</b> es la temperatura. </li>
+<li><b>presión:</b>es la presión. </li>
+<li><b>calidad_aire:</b> es la calidad del aire </li>
+<li><b>humedad:</b> es la humedad </li>
+<li><b>proyecto:</b> es la url del proyecto </li>
 </ul>
 
 			</td>
@@ -165,7 +164,6 @@ Si ya existe devuelve código 409. Si todo ok devuelve un código 201.			</td>
 				</tbody></table>
 	</div>
 
-	<p class="footer">Página renderizada en <strong>0.1849</strong> segundos. RESTful API para uso educativo, developed by <a href="http://www.twitter.com/miguelcampos">@lsbozo</a></p>
 </div>
 
 
