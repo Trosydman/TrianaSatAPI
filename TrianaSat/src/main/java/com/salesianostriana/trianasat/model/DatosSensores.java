@@ -1,5 +1,7 @@
 package com.salesianostriana.trianasat.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -27,7 +29,7 @@ public class DatosSensores {
 	private Long id;
 
 	@Column
-	@NotNull
+	//@NotNull
 	private long fecha;
 
 	@Column
@@ -74,7 +76,7 @@ public class DatosSensores {
 	}
 
 	public long getFecha() {
-		return fecha;
+		return new Date().getTime();
 	}
 
 	public void setFecha(long fecha) {

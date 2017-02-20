@@ -28,7 +28,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 // principal de las demas clases.
 @Entity
 @Table(name = "PROYECTO")
-public class Proyecto extends ResourceSupport{
+public class Proyecto /*extends ResourceSupport*/{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -62,6 +62,9 @@ public class Proyecto extends ResourceSupport{
 	@Column(unique=true)
 	@NotNull
 	private String token;
+	
+	@Column(unique=true)
+	private String urlGif;
 	
 	@Column
 	private String api_key;
@@ -103,7 +106,7 @@ public class Proyecto extends ResourceSupport{
 	}
 
 	public Proyecto(Long id, long fecha_creacion, long fecha_lanzamiento, String nombre, String descripcion,
-			String localidad, String token, String api_key, String api_secret, String access_token,
+			String localidad, String token, String urlGif, String api_key, String api_secret, String access_token,
 			String access_token_secret, List<Gps> gps, List<Timelapse> timelapse, List<DatosSensores> datos_sensores,
 			Organizacion organizacion) {
 		this.id = id;
@@ -113,6 +116,7 @@ public class Proyecto extends ResourceSupport{
 		this.descripcion = descripcion;
 		this.localidad = localidad;
 		this.token = token;
+		this.urlGif = urlGif;
 		this.api_key = api_key;
 		this.api_secret = api_secret;
 		this.access_token = access_token;
@@ -123,19 +127,24 @@ public class Proyecto extends ResourceSupport{
 		this.organizacion = organizacion;
 	}
 
-	@JsonCreator
-	public Proyecto(@JsonProperty("fecha_creacion")long fecha_creacion, @JsonProperty("fecha_lanzamiento")long fecha_lanzamiento, 
-			@JsonProperty("nombre")String nombre, @JsonProperty("descripcion")String descripcion, @JsonProperty("localidad")String localidad,
-			@JsonProperty("token")String token, @JsonProperty("api_key")String api_key, @JsonProperty("api_secret")String api_secret,
-			@JsonProperty("access_token")String access_token, @JsonProperty("access_token_secret")String access_token_secret, 
-			@JsonProperty("gps")List<Gps> gps, @JsonProperty("timelapse")List<Timelapse> timelapse, @JsonProperty("datos_sensores")List<DatosSensores> datos_sensores,
-			@JsonProperty("organizacion")Organizacion organizacion) {
+//	@JsonCreator
+//	public Proyecto(@JsonProperty("fecha_creacion")long fecha_creacion, @JsonProperty("fecha_lanzamiento")long fecha_lanzamiento, 
+//			@JsonProperty("nombre")String nombre, @JsonProperty("descripcion")String descripcion, @JsonProperty("localidad")String localidad,
+//			@JsonProperty("token")String token, @JsonProperty("urlGif")long urlGif @JsonProperty("api_key")String api_key, @JsonProperty("api_secret")String api_secret,
+//			@JsonProperty("access_token")String access_token, @JsonProperty("access_token_secret")String access_token_secret, 
+//			@JsonProperty("gps")List<Gps> gps, @JsonProperty("timelapse")List<Timelapse> timelapse, @JsonProperty("datos_sensores")List<DatosSensores> datos_sensores,
+//			@JsonProperty("organizacion")Organizacion organizacion) {
+	public Proyecto(long fecha_creacion, long fecha_lanzamiento, String nombre, String descripcion, String localidad,
+			String token, String urlGif, String api_key, String api_secret, String access_token,
+			String access_token_secret, List<Gps> gps, List<Timelapse> timelapse, List<DatosSensores> datos_sensores,
+			Organizacion organizacion) {
 		this.fecha_creacion = fecha_creacion;
 		this.fecha_lanzamiento = fecha_lanzamiento;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.localidad = localidad;
 		this.token = token;
+		this.urlGif = urlGif;
 		this.api_key = api_key;
 		this.api_secret = api_secret;
 		this.access_token = access_token;
@@ -145,12 +154,14 @@ public class Proyecto extends ResourceSupport{
 		this.datos_sensores = datos_sensores;
 		this.organizacion = organizacion;
 	}
+	
 
 	@JsonIgnore
 	public Long getIdLong(){
 		return id;
 	}
 	
+
 	public long getFecha_creacion() {
 		return fecha_creacion;
 	}
@@ -203,13 +214,17 @@ public class Proyecto extends ResourceSupport{
 		return localidad;
 	}
 
-
-
 	public void setLocalidad(String localidad) {
 		this.localidad = localidad;
 	}
 
+	public String getUrlGif() {
+		return urlGif;
+	}
 
+	public void setUrlGif(String urlGif) {
+		this.urlGif = urlGif;
+	}
 
 	public String getToken() {
 		return token;
@@ -221,103 +236,69 @@ public class Proyecto extends ResourceSupport{
 		this.token = token;
 	}
 
-
-
 	public String getApi_key() {
 		return api_key;
 	}
-
-
 
 	public void setApi_key(String api_key) {
 		this.api_key = api_key;
 	}
 
-
-
 	public String getApi_secret() {
 		return api_secret;
 	}
-
-
 
 	public void setApi_secret(String api_secret) {
 		this.api_secret = api_secret;
 	}
 
-
-
 	public String getAccess_token() {
 		return access_token;
 	}
-
-
 
 	public void setAccess_token(String access_token) {
 		this.access_token = access_token;
 	}
 
-
-
 	public String getAccess_token_secret() {
 		return access_token_secret;
 	}
-
-
 
 	public void setAccess_token_secret(String access_token_secret) {
 		this.access_token_secret = access_token_secret;
 	}
 
-
-
 	public List<Gps> getGps() {
 		return gps;
 	}
-
-
 
 	public void setGps(List<Gps> gps) {
 		this.gps = gps;
 	}
 
-
-
 	public List<Timelapse> getTimelapse() {
 		return timelapse;
 	}
-
-
 
 	public void setTimelapse(List<Timelapse> timelapse) {
 		this.timelapse = timelapse;
 	}
 
-
-
 	public List<DatosSensores> getDatos_sensores() {
 		return datos_sensores;
 	}
-
-
 
 	public void setDatos_sensores(List<DatosSensores> datos_sensores) {
 		this.datos_sensores = datos_sensores;
 	}
 
-
-
 	public Organizacion getOrganizacion() {
 		return organizacion;
 	}
 
-
-
 	public void setOrganizacion(Organizacion organizacion) {
 		this.organizacion = organizacion;
 	}
-
-
 
 	@Override
 	public String toString() {
@@ -327,8 +308,5 @@ public class Proyecto extends ResourceSupport{
 				+ ", access_token_secret=" + access_token_secret + ", gps=" + gps + ", timelapse=" + timelapse
 				+ ", datos_sensores=" + datos_sensores + ", organizacion=" + organizacion + "]";
 	}
-
-	
-	
 
 }

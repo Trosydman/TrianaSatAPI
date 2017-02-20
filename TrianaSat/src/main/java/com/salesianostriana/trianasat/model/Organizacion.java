@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 //La organización está formada por muchos usuarios y por un solo usuario que es administrador
 @Entity
 @Table(name="ORGANIZACION")
-public class Organizacion extends ResourceSupport{
+public class Organizacion /*extends ResourceSupport*/{
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	private Long id;
@@ -55,17 +55,18 @@ public class Organizacion extends ResourceSupport{
 		this.listaProyectos = listaProyectos;
 	}
     
-	@JsonCreator
-	public Organizacion(@JsonProperty("nombre")String nombre, @JsonProperty("descripcion")String descripcion,
-			@JsonProperty("listaUsuarios")List<Usuario> listaUsuarios,  @JsonProperty("listaProyecto")List<Proyecto> listaProyectos) {
+	//@JsonCreator
+	//public Organizacion(@JsonProperty("nombre")String nombre, @JsonProperty("descripcion")String descripcion,
+	//		@JsonProperty("listaUsuarios")List<Usuario> listaUsuarios,  @JsonProperty("listaProyecto")List<Proyecto> listaProyectos) {
+	public Organizacion(String nombre, String descripcion, List<Usuario> listaUsuarios, List<Proyecto> listaProyectos) {
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.listaUsuarios = listaUsuarios;
 		this.listaProyectos = listaProyectos;
 	}
 
-	@JsonIgnore
-	public Long getIdLong(){
+	
+	public Long getId(){
 		return id;
 	}
 

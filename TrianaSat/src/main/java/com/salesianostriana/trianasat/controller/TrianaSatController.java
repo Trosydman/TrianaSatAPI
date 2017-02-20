@@ -38,10 +38,10 @@ public class TrianaSatController {
 	@Autowired
 	ProyectoRepository repoProy;
 	
-	/*@RequestMapping(value="/signin", method=RequestMethod.POST)
-	public Usuario signin(@RequestBody Usuario user){
-		return repoUsuario.save(user);
-	}*/
+//	@RequestMapping(value="/signin", method=RequestMethod.POST)
+//	public Usuario signin(@RequestBody Usuario user){
+//		return repoUsuario.save(user);
+//	}
 	
 //	@RequestMapping(value="/login", method=RequestMethod.POST)
 //	public HttpEntity<Organizacion> login(@RequestParam(value = "email", required = true) String email,
@@ -55,7 +55,6 @@ public class TrianaSatController {
 //		}
 //		return new ResponseEntity<Organizacion>(HttpStatus.NOT_FOUND);
 //	}
-//	
 	
 //	@RequestMapping(value="/login", method=RequestMethod.POST)
 //	public ResponseEntity<?> login(@RequestParam(value = "email", required = true) String email,
@@ -70,33 +69,35 @@ public class TrianaSatController {
 //		} else
 //			return new ResponseEntity<Organizacion>(HttpStatus.NOT_FOUND);
 //	}
-
 	
+//	@RequestMapping(value="/logout", method=RequestMethod.GET)
+//	public @ResponseBody Usuario logout(@RequestBody Usuario usuario){
+//		//TODO Meter código de SpringSession/Security?...
+//		return null;
+//	}
 	
-	/*@RequestMapping(value="/logout", method=RequestMethod.GET)
-	public @ResponseBody Usuario logout(@RequestBody Usuario usuario){
-		//TODO Meter código de SpringSession/Security?...
-		return null;
-	}*/
-	
-	@RequestMapping(value="/proyectos", method=RequestMethod.POST)
-	public HttpEntity<Proyecto> findByToken(@RequestParam(value = "token", required = true)String token, HttpServletRequest request){
-		//TODO Meter código de SpringSession/Security?...
-		List<Proyecto> proy = repoProy.findByToken(token);
-		
-		if(proy.size()==1){
-			Proyecto pFinal = proy.get(0);
-			pFinal.add(getProyLinks(proy.get(0), request));
-			return new ResponseEntity<Proyecto>(pFinal, HttpStatus.OK);
-		} else
-			return new ResponseEntity<Proyecto>(HttpStatus.CONFLICT);
-	}
+//	@RequestMapping(value="/proyectos", method=RequestMethod.POST)
+//	public HttpEntity<Proyecto> findByToken(@RequestParam(value = "token", required = true)String token, HttpServletRequest request){
+//		//TODO Meter código de SpringSession/Security?...
+//		List<Proyecto> proy = repoProy.findByToken(token);
+//		
+//		if(proy.size()==1){
+//			Proyecto pFinal = proy.get(0);
+//			pFinal.add(getProyLinks(proy.get(0), request));
+//			return new ResponseEntity<Proyecto>(pFinal, HttpStatus.OK);
+//		} else
+//			return new ResponseEntity<Proyecto>(HttpStatus.CONFLICT);
+//	}
 	
 	/* ===============================================================================================================================
 	 * ===============================================================================================================================
 	 */
 	
-	private List<Link> getOrgLinks(Organizacion org, HttpServletRequest request){
+	//-------------------------------------------------------------------------------------------------------------
+	//---------------> ACTIVAR MÉTODOS EN CASO DE QUE LAS POJOS EXTIENDAN DE ResourceSupport <---------------------
+	//-------------------------------------------------------------------------------------------------------------
+	
+	/*private List<Link> getOrgLinks(Organizacion org, HttpServletRequest request){
 		List<Link> orgLinks = new ArrayList<Link>();
 		//TODO intentar obtener el Link mediante org.getId() -> Por qué es null?
 		String urlSelf = request.getRequestURL().toString().replace("login", "organizaciones")+"/"+org.getIdLong();
@@ -122,6 +123,6 @@ public class TrianaSatController {
 		proyLinks.add(new Link(urlSelf+"/datos_sensores","datos_sensores"));
 		
 		return proyLinks;
-	}
+	}*/
 	
 }

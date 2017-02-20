@@ -11,6 +11,6 @@ import com.salesianostriana.trianasat.model.Usuario;
 @RepositoryRestResource(collectionResourceRel = "usuarios", path = "usuarios")
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
-	List<Usuario> findByEmailAndPassword(@Param("email") String email, @Param("password") String password);
+	List<Usuario> findOneByEmailAndPassword(@Param("email") String email, @Param("password") String password);
 	
 }

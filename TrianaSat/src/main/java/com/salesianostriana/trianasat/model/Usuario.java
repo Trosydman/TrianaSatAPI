@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 // clase con los datos de cada usuario.
 @Entity
 @Table(name="USUARIO")
-public class Usuario extends ResourceSupport{
+public class Usuario/* extends ResourceSupport*/{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -61,9 +61,10 @@ public class Usuario extends ResourceSupport{
 	public Usuario() {
 	}
 	
-	@JsonCreator
-	public Usuario(@JsonProperty("nombre")String nombre, @JsonProperty("apellidos")String apellidos, @JsonProperty("email")String email,
-			@JsonProperty("password")String password, @JsonProperty("organizacion")Organizacion organizacion, @JsonProperty("administrador")boolean administrador) {
+	//@JsonCreator
+	//public Usuario(@JsonProperty("nombre")String nombre, @JsonProperty("apellidos")String apellidos, @JsonProperty("email")String email,
+	//		@JsonProperty("password")String password, @JsonProperty("organizacion")Organizacion organizacion, @JsonProperty("administrador")boolean administrador) {
+	public Usuario(String nombre, String apellidos, String email, String password, Organizacion organizacion, boolean administrador) {
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.email = email;
@@ -83,6 +84,10 @@ public class Usuario extends ResourceSupport{
 		this.administrador = administrador;
 	}
 	
+	public Long getId() {
+		return id;
+	}
+
 	public String getNombre() {
 		return nombre;
 	}
